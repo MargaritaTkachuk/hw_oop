@@ -123,6 +123,7 @@ class Parallelogram(Figure):
     def volume(self):
         return self.square()
 
+
 class Circle(Figure):
     def check_circle_existence(self, r):
         return r > 0
@@ -144,6 +145,31 @@ class Circle(Figure):
         return self.square()
 
 
+class Ball:
+    def check_ball_existence(self, r):
+        return r > 0
+
+    def __init__(self, r):
+        assert self.check_ball_existence(r), "None"
+        self.r = r
+
+    def dimention(self):
+        return 3
+
+    def squareSurface(self):
+        return 4 * math.pi * self.r**2
+
+    def squareBase(self):
+        return math.pi * self.r**2
+
+    def height(self):
+        return 2 * self.r
+
+    def volume(self):
+        return 4 * self.r**3 * math.pi / 3
+
+
+
 class TriangularPyramid(Triangle):
     def __init__(self, a, h):
         super().__init__(a, a, a)
@@ -163,3 +189,4 @@ class TriangularPyramid(Triangle):
 
     def volume(self):
         return self.squareBase() * self.h / 3
+
