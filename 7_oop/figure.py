@@ -211,10 +211,83 @@ class QuadrangularPyramid(Rectangle):
         return self.a * math.sqrt(self.h**2 + self.b**2 / 4) + self.b * math.sqrt(self.h**2 + self.a**2 / 4)
 
     def squareBase(self):
-        return self.square()
+        return self.a * self.b
 
     def height(self):
         return self.h
 
     def volume(self):
         return self.squareBase() * self.h / 3
+
+
+
+class RectangularParallelepiped(Rectangle):
+    def __init__(self, a, b, c):
+        super().__init__(a, b)
+        self.c = c
+
+    def dimention(self):
+        return 3
+
+    def squareSurface(self):
+        return 2 * self.c * (self.a + self.b)
+
+    def squareBase(self):
+        return self.a * self.b
+
+    def height(self):
+        return self.c
+
+    def volume(self):
+        return self.a * self.b * self.c
+
+
+
+class Cone(Circle):
+    def __init__(self, r, h):
+        super().__init__(r)
+        self.h = h
+
+    def dimention(self):
+        return 3
+
+    def squareSurface(self):
+        return math.pi * self.r * math.sqrt(self.r**2 + self.h**2)
+
+    def squareBase(self):
+        return math.pi * self.r**2
+
+    def height(self):
+        return self.h
+
+    def volume(self):
+        return self.squareBase() * self.h / 3
+
+
+
+class TriangularPrism(Triangle):
+    def __init__(self, a, b, c, h):
+        super().__init__(a, b, c)
+        self.h = h
+
+    def dimention(self):
+        return 3
+
+    def squareSurface(self):
+        return self.h * (self.a + self.b + self.c)
+
+    def squareBase(self):
+        half_p = self.perimeter() / 2
+        return math.sqrt(half_p * (half_p - self.a) * (half_p - self.b) * (half_p - self.c))
+
+    def height(self):
+        return self.h
+
+    def volume(self):
+        return self.squareBase() * self.h
+
+
+
+if __name__ == '__main__':
+    test = QuadrangularPyramid(2, 3, 4)
+    print(test.squareSurface())
