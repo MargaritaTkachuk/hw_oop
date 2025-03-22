@@ -26,6 +26,7 @@ class Figure:
         pass
 
 
+
 class Triangle(Figure):
     def check_triangle_existence(self, a, b, c):
         return a + b > c and a + c > b and b + c > a
@@ -50,6 +51,7 @@ class Triangle(Figure):
         return self.square()
 
 
+
 class Rectangle(Figure):
     def check_rectangle_existence(self, a, b):
         return a > 0 and b > 0
@@ -70,6 +72,8 @@ class Rectangle(Figure):
 
     def volume(self):
         return self.square()
+
+
 
 class Trapeze(Figure):
     def check_trapeze_existence(self, a, b, c, d):
@@ -101,6 +105,8 @@ class Trapeze(Figure):
     def volume(self):
         return self.square()
 
+
+
 class Parallelogram(Figure):
     def check_parallelogram_existence(self, a, b, h):
         return a > 0 and b > 0 and h > 0 and h <= max(a, b)
@@ -124,6 +130,7 @@ class Parallelogram(Figure):
         return self.square()
 
 
+
 class Circle(Figure):
     def check_circle_existence(self, r):
         return r > 0
@@ -143,6 +150,7 @@ class Circle(Figure):
 
     def volume(self):
         return self.square()
+
 
 
 class Ball:
@@ -190,3 +198,23 @@ class TriangularPyramid(Triangle):
     def volume(self):
         return self.squareBase() * self.h / 3
 
+
+class QuadrangularPyramid(Rectangle):
+    def __init__(self, a, b, h):
+        super().__init__(a, b)
+        self.h = h
+
+    def dimention(self):
+        return 3
+
+    def squareSurface(self):
+        return self.a * math.sqrt(self.h**2 + self.b**2 / 4) + self.b * math.sqrt(self.h**2 + self.a**2 / 4)
+
+    def squareBase(self):
+        return self.square()
+
+    def height(self):
+        return self.h
+
+    def volume(self):
+        return self.squareBase() * self.h / 3
