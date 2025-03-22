@@ -267,7 +267,7 @@ class Circle(Figure):
 
 
 
-class Ball:
+class Ball(Figure):
     def check_ball_existence(self, r):
         return r > 0
 
