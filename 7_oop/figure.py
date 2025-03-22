@@ -161,6 +161,12 @@ class Ball:
         assert self.check_ball_existence(r), "None"
         self.r = r
 
+    def perimetr(self):
+        return None
+
+    def square(self):
+        return None
+
     def dimention(self):
         return 3
 
@@ -186,6 +192,12 @@ class TriangularPyramid(Triangle):
     def dimention(self):
         return 3
 
+    def perimetr(self):
+        return None
+
+    def square(self):
+        return None
+
     def squareSurface(self):
         return 1.5 * self.a * math.sqrt(self.h**2 + (self.a * math.sqrt(3) / 6)**2)
 
@@ -206,6 +218,12 @@ class QuadrangularPyramid(Rectangle):
 
     def dimention(self):
         return 3
+
+    def perimetr(self):
+        return None
+
+    def square(self):
+        return None
 
     def squareSurface(self):
         return self.a * math.sqrt(self.h**2 + self.b**2 / 4) + self.b * math.sqrt(self.h**2 + self.a**2 / 4)
@@ -229,6 +247,12 @@ class RectangularParallelepiped(Rectangle):
     def dimention(self):
         return 3
 
+    def perimetr(self):
+        return None
+
+    def square(self):
+        return None
+
     def squareSurface(self):
         return 2 * self.c * (self.a + self.b)
 
@@ -250,6 +274,12 @@ class Cone(Circle):
 
     def dimention(self):
         return 3
+
+    def perimetr(self):
+        return None
+
+    def square(self):
+        return None
 
     def squareSurface(self):
         return math.pi * self.r * math.sqrt(self.r**2 + self.h**2)
@@ -273,6 +303,12 @@ class TriangularPrism(Triangle):
     def dimention(self):
         return 3
 
+    def perimetr(self):
+        return None
+
+    def square(self):
+        return None
+
     def squareSurface(self):
         return self.h * (self.a + self.b + self.c)
 
@@ -290,4 +326,4 @@ class TriangularPrism(Triangle):
 
 if __name__ == '__main__':
     test = QuadrangularPyramid(2, 3, 4)
-    print(test.squareSurface())
+    print(test.square())
