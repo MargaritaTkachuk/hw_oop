@@ -1,0 +1,132 @@
+@startuml
+
+' Базовий клас Figure
+class Figure {
+  + dimention()
+  + perimetr()
+  + square()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+' Двовимірні фігури
+class Triangle extends Figure {
+  - a: float
+  - b: float
+  - c: float
+  + dimention()
+  + perimeter()
+  + square()
+  + volume()
+}
+
+class Rectangle extends Figure {
+  - a: float
+  - b: float
+  + dimention()
+  + perimeter()
+  + square()
+  + volume()
+}
+
+class Trapeze extends Figure {
+  - a: float
+  - b: float
+  - c: float
+  - d: float
+  + dimention()
+  + perimeter()
+  + square()
+  + volume()
+}
+
+class Parallelogram extends Figure {
+  - a: float
+  - b: float
+  - h: float
+  + dimention()
+  + perimeter()
+  + square()
+  + volume()
+}
+
+class Circle extends Figure {
+  - r: float
+  + dimention()
+  + perimeter()
+  + square()
+  + volume()
+}
+
+' Тривимірні фігури
+class Ball extends Figure{
+  - r: float
+  + dimention()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+class TriangularPyramid extends Triangle {
+  - h: float
+  + dimention()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+class QuadrangularPyramid extends Rectangle {
+  - h: float
+  + dimention()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+class RectangularParallelepiped extends Rectangle {
+  - c: float
+  + dimention()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+class Cone extends Circle {
+  - h: float
+  + dimention()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+class TriangularPrism extends Triangle {
+  - h: float
+  + dimention()
+  + squareSurface()
+  + squareBase()
+  + height()
+  + volume()
+}
+
+' Зв'язки між класами
+Figure <|-- Triangle
+Figure <|-- Rectangle
+Figure <|-- Trapeze
+Figure <|-- Parallelogram
+Figure <|-- Circle
+Figure <|-- Ball
+
+Triangle <|-- TriangularPyramid
+Rectangle <|-- QuadrangularPyramid
+Rectangle <|-- RectangularParallelepiped
+Circle <|-- Cone
+Triangle <|-- TriangularPrism
+
+@enduml

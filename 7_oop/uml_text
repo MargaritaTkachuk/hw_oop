@@ -1,0 +1,36 @@
+                                                                       ┌─────────────────┐
+                                                                       │Figure           │
+                                                                       ├─────────────────┤
+                                                                       │+ dimention()    │
+                                                                       │+ perimetr()     │
+                                                                       │+ square()       │
+                                                                       │+ squareSurface()│
+                                                                       │+ squareBase()   │────────────────────────────────────┐
+                              ┌────────────────────────────────────────│+ height()       │                                    │
+                              │                      ┌─────────────────│+ volume()       │─────────────────┐                  │
+                              │                      │                 └─────────────────┘                 │                  │
+                              │                      │                 │                 │                 │                  │
+                              │                      │                 │                 │                 │                  │
+                       ┌─────────────┐               │          ┌─────────────┐   ┌─────────────┐          │                  │
+                       │Triangle     │        ┌─────────────┐   │Trapeze      │   │Parallelogram│   ┌─────────────┐  ┌─────────────────┐
+                       ├─────────────┤        │Rectangle    │   ├─────────────┤   ├─────────────┤   │Circle       │  │Ball             │
+                       │- a: float   │        ├─────────────┤   │- a: float   │   │- a: float   │   ├─────────────┤  ├─────────────────┤
+                       │- b: float   │        │- a: float   │   │- b: float   │   │- b: float   │   │- r: float   │  │- r: float       │
+                       │- c: float   │        │- b: float   │   │- c: float   │   │- h: float   │   │+ dimention()│  │+ dimention()    │
+                       │+ dimention()│        │+ dimention()│   │- d: float   │   │+ dimention()│   │+ perimeter()│  │+ squareSurface()│
+                       │+ perimeter()│        │+ perimeter()│   │+ dimention()│   │+ perimeter()│   │+ square()   │  │+ squareBase()   │
+         ┌─────────────│+ square()   │        │+ square()   │   │+ perimeter()│   │+ square()   │   │+ volume()   │  │+ height()       │
+         │             │+ volume()   │        │+ volume()   │   │+ square()   │   │+ volume()   │   └─────────────┘  │+ volume()       │
+         │             └─────────────┘        └─────────────┘   │+ volume()   │   └─────────────┘          │         └─────────────────┘
+         │                   │                       │   │      └─────────────┘                            │
+         │                   │                       │   └─────────────┐                                   │
+┌─────────────────┐  ┌─────────────────┐   ┌───────────────────┐   ┌─────────────────────────┐    ┌─────────────────┐
+│TriangularPyramid│  │TriangularPrism  │   │QuadrangularPyramid│   │RectangularParallelepiped│    │Cone             │
+├─────────────────┤  ├─────────────────┤   ├───────────────────┤   ├─────────────────────────┤    ├─────────────────┤
+│- h: float       │  │- h: float       │   │- h: float         │   │- c: float               │    │- h: float       │
+│+ dimention()    │  │+ dimention()    │   │+ dimention()      │   │+ dimention()            │    │+ dimention()    │
+│+ squareSurface()│  │+ squareSurface()│   │+ squareSurface()  │   │+ squareSurface()        │    │+ squareSurface()│
+│+ squareBase()   │  │+ squareBase()   │   │+ squareBase()     │   │+ squareBase()           │    │+ squareBase()   │
+│+ height()       │  │+ height()       │   │+ height()         │   │+ height()               │    │+ height()       │
+│+ volume()       │  │+ volume()       │   │+ volume()         │   │+ volume()               │    │+ volume()       │
+└─────────────────┘  └─────────────────┘   └───────────────────┘   └─────────────────────────┘    └─────────────────┘
