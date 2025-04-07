@@ -21,20 +21,23 @@ class Rational:
 
     def __add__(self, other: ('Rational', int)):
         if isinstance(other, int):
-            d = self._d
-            n = self._n + self._d * other
-        else:
-            d = self._d * other._d
-            n = self._n * other._d + self._d * other._n
+            other = Rational(other)
+        d = self._d * other._d
+        n = self._n * other._d + self._d * other._n
+        return Rational(n, d)
+
+    def __sub__(self, other: ('Rational', int)):
+        if isinstance(other, int):
+            other = Rational(other)
+        d = self._d * other._d
+        n = self._n * other._d - self._d * other._n
         return Rational(n, d)
 
     def __mul__(self, other: ('Rational', int)):
         if isinstance(other, int):
-            d = self._d
-            n = self._n * other
-        else:
-            d = self._d * other._d
-            n = self._n * other._n
+            other = Rational(other)
+        d = self._d * other._d
+        n = self._n * other._n
         return Rational(n, d)
 
     def __call__(self):
@@ -58,13 +61,43 @@ class Rational:
 
 
 if __name__ == '__main__':
-    res = Rational(2, 3) + Rational(5) * Rational(5, 6)
-    res2 = Rational(2, 3) * 5
-    print(res2)
-    res2['n'] = 1
-    # print(res2.__setitem__('n', 4))
-    print(res2)
-    rat = Rational('3/9')
-    rat1 = copy.copy(rat)
-    print(rat)
-    print(rat1)
+    # res = Rational(2, 3) - Rational(5) * Rational(5, 6)
+    # res2 = Rational(2, 3) * 5
+    # print(res)
+    # res2['n'] = 1
+    # # print(res2.__setitem__('n', 4))
+    # print(res2)
+    # rat = Rational('3/9')
+    # rat1 = copy.copy(rat)
+    # print(rat)
+    # print(rat1)
+    line = '4  -  92  -  79  *  59  *  90/16  *  75  -  55  *  82/41  *  19'
+    lst = line.split()
+    print(lst)
+    list_rational = []
+    list_operators = []
+
+    for el in lst:
+        if el in '-+*':
+            list_operators.append(el)
+        else: list_rational.append(el)
+
+    for i in range(len(list_rational)):
+        try:
+            list_rational[i] = int(list_rational[i])
+        except ValueError:
+            continue
+
+    print(list_rational)
+    print(list_operators)
+    res = Rational(list_rational[0])
+    for rational, operator in zip(list_rational[1:], list_operators):
+        num = Rational(rational)
+        if operator == '-':
+            res -= num
+        elif operator == '+':
+            res += num
+        elif operator == '*':
+            res *= num
+
+    print(res)
