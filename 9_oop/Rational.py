@@ -71,7 +71,7 @@ if __name__ == '__main__':
     # rat1 = copy.copy(rat)
     # print(rat)
     # print(rat1)
-    line = '4  -  92  -  79  *  59  *  90/16  *  75  -  55  *  82/41  *  19'
+    line = '73  -  90  -  25  -  33/22  +  11/40  -  64/19  -  23/91  -  48  *  92  +  53'
     lst = line.split()
     print(lst)
     list_rational = []
@@ -83,13 +83,30 @@ if __name__ == '__main__':
         else: list_rational.append(el)
 
     for i in range(len(list_rational)):
-        try:
-            list_rational[i] = int(list_rational[i])
+        try: list_rational[i] = int(list_rational[i])
         except ValueError:
             continue
 
     print(list_rational)
     print(list_operators)
+
+
+    mult = []
+    for i in range(len(list_operators)):
+        if list_operators[i] == '*':
+            mult.append(i)
+
+
+    print(mult)
+
+    for index in mult:
+        mult_num = Rational(list_rational[index]) * Rational(list_rational[index + 1])
+        list_rational[index: index + 2] = [str(mult_num)]
+        list_operators.pop(index)
+
+    print(list_rational)
+    print(list_operators)
+
     res = Rational(list_rational[0])
     for rational, operator in zip(list_rational[1:], list_operators):
         num = Rational(rational)
@@ -97,7 +114,5 @@ if __name__ == '__main__':
             res -= num
         elif operator == '+':
             res += num
-        elif operator == '*':
-            res *= num
 
-    print(res)
+    print(res())
