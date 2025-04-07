@@ -42,9 +42,16 @@ class RationalList:
             self.data += [other]
         return RationalList(self.data)
 
+    def to_sun_rationals(self):
+        result = Rational(0)
+        for el in self.data:
+            result += el
+        return result
+
+
 if __name__ == '__main__':
     lst = RationalList([1, '1/2', 'hui', 1.33, 12])
-    lst0= '3/33'
+    lst0= 7
     lst += lst0
     print(lst)
 
