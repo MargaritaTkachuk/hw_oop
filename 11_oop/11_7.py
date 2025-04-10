@@ -1,3 +1,5 @@
+from math import factorial
+
 #################### task a ####################
 x = int(input())
 n = int(input())
@@ -15,6 +17,16 @@ print(x1)
 for k in range(2, n + 1):
     x1 = x1 * (x * (1 - k) /  k)
     print(x1)
+
+#################### task c ####################
+x = int(input())
+n = int(input())
+x0 = 1
+print(x0)
+for k in range(1, n):
+    x0 *= - x * factorial(k**2 - k) / factorial(k**2 + k)
+    print(x0)
+
 
 #################### task d ####################
 x = int(input())
